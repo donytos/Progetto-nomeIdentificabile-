@@ -88,3 +88,78 @@ Received Import Request.
 Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa7ed051ced4084210995b9ef96a3a7f') in 0.044082 seconds
   Import took 0.050619 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001724 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.872 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2346 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.6 MB.
+System memory in use after: 106.9 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2830.
+Total: 3.303000 ms (FindLiveObjects: 0.281400 ms CreateObjectMapping: 0.139500 ms MarkObjects: 1.665300 ms  DeleteObjects: 1.215200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 197.726358 seconds.
+  path: Assets/Presets/AudioCompressedInMemory.preset
+  artifactKey: Guid(2dd802e4d37c65149922028d3e973832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Presets/AudioCompressedInMemory.preset using Guid(2dd802e4d37c65149922028d3e973832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b18cbd2c66d7256d377f2be6b18d45c8') in 0.015796 seconds
+  Import took 0.031607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000910 seconds.
+  path: Assets/Presets/AudioStreaming.preset
+  artifactKey: Guid(86bcce7f5575b54408aa0f3a7d321039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Presets/AudioStreaming.preset using Guid(86bcce7f5575b54408aa0f3a7d321039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3733209e64214ed637045a4445d8ace9') in 0.004153 seconds
+  Import took 0.010764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000641 seconds.
+  path: Assets/Presets/NormalTexture.preset
+  artifactKey: Guid(14a57cf3b9fa1c74b884aa7e0dcf1faa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Presets/NormalTexture.preset using Guid(14a57cf3b9fa1c74b884aa7e0dcf1faa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9122ab2b4139acf4638b2b25587976a8') in 0.005201 seconds
+  Import took 0.012209 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000540 seconds.
+  path: Assets/Presets/UtilityTexture.preset
+  artifactKey: Guid(45f7b2e3c78185248b3adbb14429c2ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Presets/UtilityTexture.preset using Guid(45f7b2e3c78185248b3adbb14429c2ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68a0a6a9213efaf2bf555922cd89ac63') in 0.005660 seconds
+  Import took 0.013300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.308658 seconds.
+  path: Assets/Prefab
+  artifactKey: Guid(385969cb7eac96e48b4ccf6c3285686a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab using Guid(385969cb7eac96e48b4ccf6c3285686a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '116930fcd2fee0e5bd190e828daeddbf') in 0.003278 seconds
+  Import took 0.010115 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.075565 seconds.
+  path: Assets/Prefab/Props.prefab
+  artifactKey: Guid(346f431fbda59c84783cef96a298bd92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Props.prefab using Guid(346f431fbda59c84783cef96a298bd92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b86e7723de916b29a4551f059d1b6a2') in 1.872393 seconds
+  Import took 1.879927 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
