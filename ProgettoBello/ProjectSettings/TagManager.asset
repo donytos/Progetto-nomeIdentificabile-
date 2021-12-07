@@ -12,6 +12,7 @@ TagManager:
   - DoorTrigger
   - CameraTrigger_4
   - LoadTrigger_1
+  - Save_Trigger
   layers:
   - Default
   - TransparentFX

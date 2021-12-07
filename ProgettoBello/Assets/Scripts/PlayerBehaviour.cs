@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Cinemachine;
 public class PlayerBehaviour : MonoBehaviour
 {
-    private InventorySystem inventory;
+    public InventorySystem inventory;
     private Items.ItemType itemNeedeed;
     TextMeshProUGUI keyToProceedText;
     public CinemachineClearShot cinemachine1;

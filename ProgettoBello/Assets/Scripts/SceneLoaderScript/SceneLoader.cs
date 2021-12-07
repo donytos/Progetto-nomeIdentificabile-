@@ -18,5 +18,10 @@ public class SceneLoader : MonoBehaviour
             LoadLevelOperation = SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
 
         }
+ 
+}
+    private void OnTriggerExit(Collider other)
+    {
+        Destroy(gameObject);
     }
 }
