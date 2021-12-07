@@ -3,12 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Wall
+  - CameraTrigger_1
+  - CameraTrigger_2
+  - CameraTrigger_3
+  - DoorTrigger
+  - CameraTrigger_4
+  - LoadTrigger_1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

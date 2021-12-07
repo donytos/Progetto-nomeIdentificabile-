@@ -21,10 +21,7 @@ public class MenuUiControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     public void NewGame()
     {
         SceneManager.LoadScene(1);
