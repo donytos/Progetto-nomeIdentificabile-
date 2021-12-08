@@ -9,6 +9,7 @@ using TMPro;
 #endif
 public class MenuUiControl : MonoBehaviour
 {
+    public static bool continua;
     public Button options;
     public GameObject firstLayer;
     public GameObject secondLayer;
@@ -24,11 +25,13 @@ public class MenuUiControl : MonoBehaviour
 
     public void NewGame()
     {
+        continua = false;
         SceneManager.LoadScene(1);
     }
     public void LoadGame()
     {
-
+        continua = true;
+        SceneManager.LoadScene(1);
     }
     public void ExitGame()
     {

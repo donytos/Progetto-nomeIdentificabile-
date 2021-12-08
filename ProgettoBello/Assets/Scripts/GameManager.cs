@@ -43,8 +43,8 @@ void Start()
         plane = GameObject.Find("MoveToScene");
 
         player = GameObject.Find("Sphere");
-
-       LoadState();
+        if (MenuUiControl.continua) { LoadState(); }
+       
 
     }
 
