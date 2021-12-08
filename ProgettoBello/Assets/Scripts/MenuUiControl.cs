@@ -10,7 +10,7 @@ using TMPro;
 public class MenuUiControl : MonoBehaviour
 {
     public static bool continua;
-    public Button options;
+    
     public GameObject firstLayer;
     public GameObject secondLayer;
     public bool layerVisibility;
@@ -54,5 +54,10 @@ public class MenuUiControl : MonoBehaviour
     {
         firstLayer.gameObject.SetActive(true);
         secondLayer.gameObject.SetActive(false);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
