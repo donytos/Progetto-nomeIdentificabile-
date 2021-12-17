@@ -6,9 +6,10 @@ public class CameraFollow : MonoBehaviour
 {
     public GameObject player;
     public Vector3 offset;
-    // Start is called before the first frame update
+    // Start is called before the first frame update and start the camera on a set position from the player
     void Start()
     {
+        player = GameObject.Find("Sphere");
         offset = new Vector3(0, 2.8f, -9.41f);   
     }
 

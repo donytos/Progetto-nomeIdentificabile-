@@ -8,7 +8,7 @@ public class ItemWorldSpawner : MonoBehaviour
 
     private void Start()
     {
-        
+        //setting the intem selected into the scene
         ItemWorld.SpawnItemWorld(transform.position,item);
         Destroy(gameObject);
     }

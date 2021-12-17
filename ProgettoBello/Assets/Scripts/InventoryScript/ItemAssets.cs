@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemAssets : MonoBehaviour
 {
+
+    //setting an istance for the item assets and add every sprite for the object
     public static ItemAssets Instance { get; private set; }
     // Start is called before the first frame update
     void Awake()

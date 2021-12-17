@@ -5,6 +5,7 @@ using TMPro;
 
 public class ItemWorld : MonoBehaviour
 {
+    //set the sprite of an item in the game in a specific position
     public static ItemWorld SpawnItemWorld(Vector3 position,Items item)
     {
         Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld,position,Quaternion.identity);
@@ -14,15 +15,19 @@ public class ItemWorld : MonoBehaviour
 
         return itemWorld;
     }
+
     private Items item;
     private SpriteRenderer spriteRenderer;
     private TextMeshPro text;
 
     public void Awake()
     {
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         text = transform.Find("text").GetComponent<TextMeshPro>();
     }
+
+    //change the world item with the corrispective item in the inventory and check if the amount of the item is greater then 1
     public void SetItem(Items item)
     {
         this.item = item;
@@ -36,6 +41,8 @@ public class ItemWorld : MonoBehaviour
             text.SetText("");
         }
     }
+
+    //return the item 
     public Items GetItems()
     {
         return item;

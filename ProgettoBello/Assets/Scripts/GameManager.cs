@@ -7,10 +7,13 @@ using UnityEngine.AI;
 using System.IO;
 public class GameManager : MonoBehaviour
 {
-    GameManager Instance { get;  set; }
-    GameObject player;
-    PlayerBehaviour playerScript;
-    GameObject plane;
+    GameManager Instance { get;  set; } //set an istance of the gameManager
+    GameObject player; //set a variable for the player
+    PlayerBehaviour playerScript; //set a variable for the playerScript
+    GameObject plane; 
+   
+
+    //adding a Data class for the important setting to save
    [System.Serializable]
     class Data
     {
@@ -18,10 +21,10 @@ public class GameManager : MonoBehaviour
        public Vector3 playerpos;
        public  string loadedScene;
     }
-    // Start is called before the first frame update
+    
     private void Awake()
     {
-       
+        //setting an only istance of the gameManager 
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -35,21 +38,24 @@ public class GameManager : MonoBehaviour
 
 void Start()
     {
-
-        playerScript = GameObject.Find("Sphere").GetComponent<PlayerBehaviour>();
+   
+        
+        playerScript = GameObject.Find("Sphere").GetComponent<PlayerBehaviour>(); //returning the script
 
         Debug.Log(SceneManager.GetActiveScene().name);
 
-        plane = GameObject.Find("MoveToScene");
+        plane = GameObject.Find("MoveToScene"); 
 
-        player = GameObject.Find("Sphere");
-        if (MenuUiControl.continua) { LoadState(); }
+        player = GameObject.Find("Sphere"); //returning the player object
+        if (MenuUiControl.continua) { LoadState(); } // load the game if the variable in the main menù return true
        
 
     }
 
     // Update is called once per frame
 
+
+    //save the istance of the player position, save the inventory of the player and all the loaded scene
     public void SaveState()
     {
         Data data = new Data();
@@ -62,7 +68,7 @@ void Start()
         Debug.Log("saved successfully");
     }
 
-    public void LoadState()
+    public void LoadState()  //loading the scene
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -87,7 +93,7 @@ void Start()
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    { //save the game once the player enter the trigger
         if (other.CompareTag("Player"))
         {
             SaveState();

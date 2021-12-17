@@ -5,25 +5,25 @@ using UnityEngine.UI;
 using TMPro;
 public class UI_Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private InventorySystem inventory;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    
+    private InventorySystem inventory;  //set a variable for the player invetory
+    private Transform itemSlotContainer; //set a variable for the UI element of the container
+    private Transform itemSlotTemplate;  //set a variable for the UI element of the inventory Template
 
     private void Awake()
     {
-
+        //search in the Hierarchy for the container and the template of the inventory
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate =  itemSlotContainer.transform.Find("ItemSlotTemplate");
         Debug.Log("1 " +itemSlotContainer+" "+itemSlotTemplate);
     }
 
-    // Update is called once per frame
+   //set the inventory for the player
     public void SetInventory(InventorySystem inventory)
     {
         this.inventory = inventory;
         inventory.OnItemListChanged += InventorySystem_OnItemListChanged;
-        ResfreshInventoryItems();
+        ResfreshInventoryItems(); 
     }
 
     private void InventorySystem_OnItemListChanged(object sender,System.EventArgs e)
@@ -31,10 +31,10 @@ public class UI_Inventory : MonoBehaviour
         ResfreshInventoryItems();
     }
 
-
+    //refresh the inventory for every new item
     private void ResfreshInventoryItems()
     {
-
+        //istantiate a new template for every object in the inventory and add it to the inventory with the correct item that will display in the game
         foreach (Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
@@ -52,7 +52,8 @@ public class UI_Inventory : MonoBehaviour
             Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
             image.sprite = item.GetSprite();
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("text").GetComponent<TextMeshProUGUI>();
-            
+
+            //setting the text if the item is stackable
             if (item.amount > 1)
             {
                 uiText.SetText(item.amount.ToString());
@@ -61,7 +62,7 @@ public class UI_Inventory : MonoBehaviour
             {
                 uiText.SetText("");
             }
-          
+          //if we reach a boundary we are gonna reset the x-axis and increase the y 
             x +=14;
             
             if (x > 200)

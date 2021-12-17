@@ -6,18 +6,24 @@ using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
 
-   
+   //all the camera in the game scene plus theyr cinemachine
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
     public CinemachineVirtualCamera camera3;
     public CinemachineVirtualCamera camera4;
-    public NavMeshAgent PlayerAgent;
+    public CinemachineClearShot cinemachine1;
+
+
+    public NavMeshAgent PlayerAgent; //player agent for the navMesh Movement
     public LayerMask clickable;
+
+    
+    public Light lightPlayer;
     /*
     public GameObject player;
     public string a;
     */
-    private string colliderTag;
+    private string colliderTag;  //variable used for choose the correct cam to use
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +32,10 @@ public class PlayerMovement : MonoBehaviour
         a = player.gameObject.tag;
         Debug.Log(a);
        */
+     
         PlayerAgent = GetComponent<NavMeshAgent>();
+     
+        
        
     }
 
@@ -35,12 +44,14 @@ public class PlayerMovement : MonoBehaviour
     {
         
         BasicMovement();
-
+        Light();
 
     }
 
     private void BasicMovement()
     {
+        //move the player based on the click of the mouse
+        //the player will move only on specific layer 
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -63,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        //entering a trigger for the camera will deactivate the actual camera to replace it with the new one 
         colliderTag = other.gameObject.tag;
         switch (colliderTag)
         {
@@ -100,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //exiting the trigger will restore the camera previousy deactivated
         colliderTag = other.gameObject.tag;
 
         switch (colliderTag)
@@ -138,8 +152,10 @@ public class PlayerMovement : MonoBehaviour
      
     }
 
-
-
-
+    public void Light()
+    {
+   
+    
+    }
 
 }

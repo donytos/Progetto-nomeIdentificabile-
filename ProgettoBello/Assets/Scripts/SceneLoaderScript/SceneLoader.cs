@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
     private AsyncOperation LoadLevelOperation = null;
     // Start is called before the first frame update
 
-
+    //when we collide whit the trigger load the new Scene for the game
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player") && LoadLevelOperation == null)

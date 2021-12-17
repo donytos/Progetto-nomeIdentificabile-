@@ -6,17 +6,24 @@ public class ToMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+    {  //open the pause menù when whe press the Escape button
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            PauseGame();
             ReturnToMenu();
         }
     }
+    //open the pause menu function
     public void ReturnToMenu()
     {
         Debug.Log("funziona");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(3);
     }
-    // Update is called once per frame
- 
+   //pause the game scene 
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+
 }

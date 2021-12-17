@@ -5,7 +5,7 @@ using System;
 [Serializable]
 public class Items
 {
-   
+   //create a class for the item and an enumerable variable to insert every item that we can add to the inventory
     public enum ItemType
     {
         Key,
@@ -16,10 +16,11 @@ public class Items
     }
 
     public ItemType itemtype;
-    public int amount;
+
+    public int amount; //the amount of a single item
 
 
-
+    //get the sprite for every item from the ItemAssets
     public Sprite GetSprite()
     {
         switch (itemtype)
@@ -32,6 +33,7 @@ public class Items
         }
     }
 
+    //set the possibility for an Item to be stackable and return the boolean value
     public bool IsStackable()
     {
         switch (itemtype)
