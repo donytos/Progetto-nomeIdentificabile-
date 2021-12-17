@@ -69,9 +69,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+       
+
     }
 
 
+    
     private void OnTriggerEnter(Collider other)
     {
 
