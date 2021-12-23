@@ -58,8 +58,12 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        
+       
     }
+
+
+
+    
     private void OnTriggerEnter(Collider other)
     {
       

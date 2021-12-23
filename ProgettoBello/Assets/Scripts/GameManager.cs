@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 void Start()
     {
 
-        player.transform.position = new Vector3(-9, 0, 1.8f);
+      //  player.transform.position = new Vector3(-9, 0, 1.8f);
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>(); //returning the script
 
         Debug.Log(SceneManager.GetActiveScene().name);

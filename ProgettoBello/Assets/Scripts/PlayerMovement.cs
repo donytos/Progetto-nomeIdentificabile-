@@ -47,7 +47,10 @@ public class PlayerMovement : MonoBehaviour
         Light();
 
     }
-
+    void FaceDirection()
+    {
+       
+    }
     private void BasicMovement()
     {
         //move the player based on the click of the mouse
@@ -62,6 +65,12 @@ public class PlayerMovement : MonoBehaviour
                 if ((clickable.value & collisionMask) > 0)
                 {
                     PlayerAgent.destination = hit.point;
+
+/**
+                    Vector3 dir = PlayerAgent.destination - transform.position;
+                    dir.y = 0;//This allows the object to only rotate on its y axis
+                    Quaternion rot = Quaternion.LookRotation(dir);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, rot, 200 * Time.deltaTime);**/
                 }
                 else
                     Debug.Log("Clicked a layer not suitable for navigator");
