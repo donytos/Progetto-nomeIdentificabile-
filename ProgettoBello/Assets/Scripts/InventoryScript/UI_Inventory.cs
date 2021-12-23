@@ -12,6 +12,8 @@ public class UI_Inventory : MonoBehaviour
     private bool inventoryView=false;
     private Transform panel;
 
+    public static bool interaction;
+
     private void Awake()
     {
 
@@ -74,6 +76,8 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 10f;
         foreach(Items item in inventory.GetItemsList())
         {
+            interaction = true;
+            Debug.LogWarning("è ENTRATO CON INTERAZIONE " + interaction);
             Debug.Log("2 "+itemSlotContainer+" "+ itemSlotTemplate);
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);

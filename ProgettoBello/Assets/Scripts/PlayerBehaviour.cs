@@ -24,6 +24,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject chest;
     public Animator chestAnim;
+
+
+    public GameObject player;
+    public Animator objInteraction;
     [SerializeField] private UI_Inventory uiInventory;  //variable used to set a graphical reference to the inventory
 
     // Start is called before the first frame update
@@ -47,6 +51,9 @@ public class PlayerBehaviour : MonoBehaviour
         chest = GameObject.Find("chest");
         chestAnim = chest.GetComponent<Animator>();
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        objInteraction = player.GetComponent<Animator>();
+
         //setting the new Inventory and add it to the relative UI
         inventory = new InventorySystem();
         uiInventory.SetInventory(inventory);
@@ -58,7 +65,15 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Update()
     {
-       
+       if (UI_Inventory.interaction)
+        {
+            objInteraction.SetBool("TakeOBJ", true);
+           
+        }
+        else
+        {
+            objInteraction.SetBool("TakeOBJ", false);
+        }
     }
 
 
