@@ -9,13 +9,19 @@ public class UI_Inventory : MonoBehaviour
     private InventorySystem inventory;  //set a variable for the player invetory
     private Transform itemSlotContainer; //set a variable for the UI element of the container
     private Transform itemSlotTemplate;  //set a variable for the UI element of the inventory Template
+    private bool inventoryView=false;
+    private Transform panel;
 
     private void Awake()
     {
+
         //search in the Hierarchy for the container and the template of the inventory
+        panel = transform.Find("Panel");
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate =  itemSlotContainer.transform.Find("ItemSlotTemplate");
         Debug.Log("1 " +itemSlotContainer+" "+itemSlotTemplate);
+        panel.gameObject.SetActive(inventoryView);
+        itemSlotContainer.gameObject.SetActive(inventoryView);
     }
 
    //set the inventory for the player
@@ -30,7 +36,31 @@ public class UI_Inventory : MonoBehaviour
     {
         ResfreshInventoryItems();
     }
+    private void Update()
+    {
+      
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            switch (inventoryView)
+            {
+                case true:
+                    Debug.Log("inventory true");
+                    inventoryView = false;
+                    panel.gameObject.SetActive(inventoryView);
+                    itemSlotContainer.gameObject.SetActive(inventoryView);
+                    break;
+                case false:
+                    inventoryView = true;
+                    Debug.Log("inventory false");
+                    panel.gameObject.SetActive(inventoryView);
+                    itemSlotContainer.gameObject.SetActive(inventoryView);
+                    break;
 
+            }
+            
+        }
+        
+    }
     //refresh the inventory for every new item
     private void ResfreshInventoryItems()
     {
@@ -40,7 +70,7 @@ public class UI_Inventory : MonoBehaviour
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
         }
-        int x = 0, y = 0;
+        int x = 33, y = 25;
         float itemSlotCellSize = 10f;
         foreach(Items item in inventory.GetItemsList())
         {
@@ -65,10 +95,10 @@ public class UI_Inventory : MonoBehaviour
           //if we reach a boundary we are gonna reset the x-axis and increase the y 
             x +=14;
             
-            if (x > 200)
+            if (x > 130)
             {
-                x = 0;
-                y++;
+                x = 33;
+                y-=10;
             }
            
 

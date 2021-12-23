@@ -16,7 +16,7 @@ public class CameraShotPlayer : MonoBehaviour
         }
         //check the player transform and add the player at the cinemachine
         followTarget = player.transform;
-        cinemachine2 = GameObject.Find("CM ClearShot2").GetComponent<CinemachineClearShot>();
+        cinemachine2 = GameObject.Find("CM ClearShot1").GetComponent<CinemachineClearShot>();
         cinemachine2.LookAt = followTarget;
     }
 

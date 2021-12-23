@@ -17,8 +17,13 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject trigger_newScene;  //variable used to upload the new scene in the game in real-time
 
     private GameObject testAnimDoor;  //variables used to set the animation of the door to continue
+
     public Animator doorAnim;
 
+
+
+    public GameObject chest;
+    public Animator chestAnim;
     [SerializeField] private UI_Inventory uiInventory;  //variable used to set a graphical reference to the inventory
 
     // Start is called before the first frame update
@@ -38,6 +43,9 @@ public class PlayerBehaviour : MonoBehaviour
         doorAnim = testAnimDoor.GetComponent<Animator>();
         trigger_newScene = GameObject.Find("Trigger_newScene");
         keyToProceedText = GameObject.Find("ui_Text").GetComponent<TextMeshProUGUI>();
+
+        chest = GameObject.Find("chest");
+        chestAnim = chest.GetComponent<Animator>();
 
         //setting the new Inventory and add it to the relative UI
         inventory = new InventorySystem();
@@ -104,9 +112,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         }
 
+        if (other.CompareTag("TriggerChest"))
+        {
+
+            chestAnim.SetBool("nearChest", true);
+        }
 
 
-       
+
 
     }
 
@@ -148,6 +161,12 @@ public class PlayerBehaviour : MonoBehaviour
             }
 
 
+        }
+
+        if (other.CompareTag("TriggerChest"))
+        {
+
+            chestAnim.SetBool("nearChest", false);
         }
     }
 }

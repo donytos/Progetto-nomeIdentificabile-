@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");  
         //setting an only istance of the gameManager 
         if (Instance != null)
         {
@@ -33,20 +34,20 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-       
+   
     }
 
 void Start()
     {
-   
-        
-        playerScript = GameObject.Find("Sphere").GetComponent<PlayerBehaviour>(); //returning the script
+
+        player.transform.position = new Vector3(-9, 0, 1.8f);
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>(); //returning the script
 
         Debug.Log(SceneManager.GetActiveScene().name);
 
         plane = GameObject.Find("MoveToScene"); 
 
-        player = GameObject.Find("Sphere"); //returning the player object
+    //    player = GameObject.Find("Sphere"); //returning the player object
         if (MenuUiControl.continua) { LoadState(); } // load the game if the variable in the main menù return true
        
 

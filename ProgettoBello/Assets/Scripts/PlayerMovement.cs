@@ -5,14 +5,14 @@ using UnityEngine.AI;
 using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
-
+    /** i'm deactivating the camera trigger to testing the Cinemachine without 
    //all the camera in the game scene plus theyr cinemachine
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
     public CinemachineVirtualCamera camera3;
     public CinemachineVirtualCamera camera4;
     public CinemachineClearShot cinemachine1;
-
+    **/
 
     public NavMeshAgent PlayerAgent; //player agent for the navMesh Movement
     public LayerMask clickable;
@@ -32,11 +32,11 @@ public class PlayerMovement : MonoBehaviour
         a = player.gameObject.tag;
         Debug.Log(a);
        */
-     
-        PlayerAgent = GetComponent<NavMeshAgent>();
-     
+
+           PlayerAgent = GetComponent<NavMeshAgent>();
+
         
-       
+
     }
 
     // Update is called once per frame
@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        /** i'm deactivating the camera trigger to testing the Cinemachine without 
 
         //entering a trigger for the camera will deactivate the actual camera to replace it with the new one 
         colliderTag = other.gameObject.tag;
@@ -110,12 +111,13 @@ public class PlayerMovement : MonoBehaviour
             default:
                 break;
         }
+        **/
      
       
     }
 
     private void OnTriggerExit(Collider other)
-    {
+    {/** i'm deactivating the camera trigger to testing the Cinemachine without 
         //exiting the trigger will restore the camera previousy deactivated
         colliderTag = other.gameObject.tag;
 
@@ -152,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             default:
                 break;
         }
-     
+     **/
     }
 
     public void Light()

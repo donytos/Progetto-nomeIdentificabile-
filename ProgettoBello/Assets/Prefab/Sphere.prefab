@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393487978926769626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.021965, y: -12.937524, z: -4.838427}
+  m_LocalPosition: {x: 1, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,14 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af2f93ecd451da459f824a374f4e86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera1: {fileID: 0}
-  camera2: {fileID: 0}
-  camera3: {fileID: 0}
-  camera4: {fileID: 0}
-  PlayerAgent: {fileID: 0}
+  PlayerAgent: {fileID: 393487978926769619}
   clickable:
     serializedVersion: 2
     m_Bits: 8
+  lightPlayer: {fileID: 0}
 --- !u!54 &393487978926769616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,4 +184,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinemachine1: {fileID: 0}
   trigger_newScene: {fileID: 0}
+  doorAnim: {fileID: 0}
   uiInventory: {fileID: 0}
