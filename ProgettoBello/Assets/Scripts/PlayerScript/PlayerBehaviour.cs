@@ -83,14 +83,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
       
 
-        ItemWorld itemWorld = other.GetComponent<ItemWorld>();
-        if (itemWorld != null)
-        {
-            //remove the object from the scene if it got picked up
-            inventory.AddItem(itemWorld.GetItems());
-            itemWorld.DestroySelf();
-
-        }
 
         // if the player step into the collider for the door he will open it only if he got with him a specific Object
         if (other.CompareTag("DoorTrigger"))

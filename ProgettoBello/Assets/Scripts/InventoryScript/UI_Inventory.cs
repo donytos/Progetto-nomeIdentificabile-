@@ -9,11 +9,13 @@ public class UI_Inventory : MonoBehaviour
     private InventorySystem inventory;  //set a variable for the player invetory
     private Transform itemSlotContainer; //set a variable for the UI element of the container
     private Transform itemSlotTemplate;  //set a variable for the UI element of the inventory Template
-    private bool inventoryView=false;
+    public static bool inventoryView=false;
     private Transform panel;
 
     public static bool interaction;
 
+
+    public TextMeshProUGUI ObjDescription;
     private void Awake()
     {
 
@@ -40,22 +42,26 @@ public class UI_Inventory : MonoBehaviour
     }
     private void Update()
     {
-      
+      //Open the inventory only if the player press the correct key
         if (Input.GetKeyDown(KeyCode.I))
         {
             switch (inventoryView)
             {
                 case true:
-                    Debug.Log("inventory true");
+                    Debug.Log("inventory true");  
                     inventoryView = false;
                     panel.gameObject.SetActive(inventoryView);
                     itemSlotContainer.gameObject.SetActive(inventoryView);
+                    ObjDescription.gameObject.SetActive(false);
+
+                    Time.timeScale = 1;
                     break;
                 case false:
                     inventoryView = true;
                     Debug.Log("inventory false");
                     panel.gameObject.SetActive(inventoryView);
                     itemSlotContainer.gameObject.SetActive(inventoryView);
+                    Time.timeScale = 0;
                     break;
 
             }
@@ -72,7 +78,7 @@ public class UI_Inventory : MonoBehaviour
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
         }
-        int x = 33, y = 25;
+        int x = 1, y = 47;
         float itemSlotCellSize = 10f;
         foreach(Items item in inventory.GetItemsList())
         {
@@ -99,9 +105,9 @@ public class UI_Inventory : MonoBehaviour
           //if we reach a boundary we are gonna reset the x-axis and increase the y 
             x +=14;
             
-            if (x > 130)
+            if (x > 90)
             {
-                x = 33;
+                x = 1;
                 y-=10;
             }
            

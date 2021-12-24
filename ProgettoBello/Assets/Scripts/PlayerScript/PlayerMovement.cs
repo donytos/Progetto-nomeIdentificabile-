@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using Cinemachine;
 public class PlayerMovement : MonoBehaviour
-{
+{//BUG: WHEN THE PLAYER IS IN THE MENU THE BODY STOP MOVING BUT RECORD EVERY RAYCAST DONE DURING THE TIME
+            //POSSIBLE SOLUTION: STOP THE RAYCAST
     /** i'm deactivating the camera trigger to testing the Cinemachine without 
    //all the camera in the game scene plus theyr cinemachine
     public CinemachineVirtualCamera camera1;
@@ -54,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
             PlayerAgent.speed = 3.5f;
         }
        
+
+
+
         BasicMovement();
         Light();
 
@@ -67,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //move the player based on the click of the mouse
         //the player will move only on specific layer 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !UI_Inventory.inventoryView)
         {
             RaycastHit hit;
 

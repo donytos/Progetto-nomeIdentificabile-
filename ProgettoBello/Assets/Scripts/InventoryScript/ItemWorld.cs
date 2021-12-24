@@ -8,7 +8,7 @@ public class ItemWorld : MonoBehaviour
     //set the sprite of an item in the game in a specific position
     public static ItemWorld SpawnItemWorld(Vector3 position,Items item)
     {
-        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld,position,Quaternion.identity);
+        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld,position,Quaternion.Euler(-94,0,0));
 
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
