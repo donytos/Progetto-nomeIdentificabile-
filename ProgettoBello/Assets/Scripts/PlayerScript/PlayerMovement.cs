@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     */
     private string colliderTag;  //variable used for choose the correct cam to use
 
+    public Animator objInteraction;
+
+    int collisionMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
            PlayerAgent = GetComponent<NavMeshAgent>();
 
-        
+         objInteraction = GetComponent<Animator>();
 
     }
 
@@ -77,19 +80,38 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                int collisionMask = (1 << hit.transform.gameObject.layer);
+            
+                 collisionMask = (1 << hit.transform.gameObject.layer);
+              
+            
                 if ((clickable.value & collisionMask) > 0)
                 {
                     PlayerAgent.destination = hit.point;
-
+                    
                 }
                 else
+                {
+
                     Debug.Log("Clicked a layer not suitable for navigator");
+                }
+                  
 
             }
+           
         }
+        // BUG: EFFETTUA UN PASSO EXTRA
+            //POSSIBILE SOLUZIONE: MODIFICARE I PARAMENTRI DELLA VELOCITA' DI MAGNITUDO
+        if (PlayerAgent.velocity.magnitude <=0.1f) { 
 
-       
+            Debug.Log("velocita per togliere " + PlayerAgent.velocity.magnitude);
+            objInteraction.SetBool("Movement", false);
+        }
+        else if (PlayerAgent.velocity.magnitude > 0.1f) { 
+
+            Debug.Log("velocità per mettere " + PlayerAgent.velocity.magnitude);
+            objInteraction.SetBool("Movement", true);
+        }
+      
 
     }
 
