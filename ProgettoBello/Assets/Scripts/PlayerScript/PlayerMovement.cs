@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         }
        else
         {
-            PlayerAgent.speed = 3.5f;
+            PlayerAgent.speed = 2f;
         }
        
 
