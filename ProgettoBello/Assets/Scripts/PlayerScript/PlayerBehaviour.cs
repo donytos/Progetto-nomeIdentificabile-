@@ -68,7 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
        if (UI_Inventory.interaction)
         {
             objInteraction.SetBool("TakeOBJ", true);
-           
+            StartCoroutine("Wait");
         }
         else
         {
@@ -77,7 +77,10 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
 
-
+    IEnumerable Wait()
+    {
+        yield return new WaitForSeconds(1f);
+    }
     
     private void OnTriggerEnter(Collider other)
     {

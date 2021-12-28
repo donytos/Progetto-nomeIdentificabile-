@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class MouseInteraction : MonoBehaviour
 {
+    GameObject player;
   TextMeshProUGUI NameObj;
   public  SpriteRenderer sprite;
   public  PlayerBehaviour player_code;
@@ -14,7 +15,8 @@ public class MouseInteraction : MonoBehaviour
   
     private void Start()
     {
-        player_code = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        player_code = player.GetComponent<PlayerBehaviour>();
         NameObj = GameObject.Find("Objname").GetComponent<TextMeshProUGUI>();
        string3 = ("" + sprite.sprite);
        
@@ -44,9 +46,16 @@ public class MouseInteraction : MonoBehaviour
         ItemWorld itemWorld = object_show.GetComponent<ItemWorld>();
         if (itemWorld != null)
         {
+            if(Mathf.Sqrt((itemWorld.transform.position.x - player.transform.position.x) * (itemWorld.transform.position.x - player.transform.position.x)) <= 1f  )
+            {
+                player_code.inventory.AddItem(itemWorld.GetItems());
+                itemWorld.DestroySelf();
+            }
+            else {
+                Debug.LogWarning("we figlio di merda stai lontano");
+            }
             //remove the object from the scene if it got picked up
-            player_code.inventory.AddItem(itemWorld.GetItems());
-            itemWorld.DestroySelf();
+          
 
         }
     }
